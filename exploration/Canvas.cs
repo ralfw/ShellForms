@@ -18,9 +18,9 @@ namespace consoledialogs
 		private List<Control> controls = new List<Control>();
 		private Control focus;
 
-		public void Initialize(int width, int height) {
-			this.width = width;
-			this.height = height;
+		public void Initialize() {
+			this.width = Console.WindowWidth;
+			this.height = Console.WindowHeight;
 			focus = this.controls [0];
 			Paint ();
 		}
@@ -34,22 +34,10 @@ namespace consoledialogs
 		}
 
 		private void Paint() {
-			var viewArea = new ViewArea { X = 0, Y=0 };
-
-			var canvas = new List<char[]> ();
-			for (var row = 0; row < this.height; row++) {
-				canvas.Add (new string ('.', this.width).ToCharArray ());
-			}
-			viewArea.Canvas = canvas.ToArray ();
-
 			foreach (var c in this.controls) {
-				c.Paint (viewArea);
+				c.Paint ();
 			}
-
-			OnContentChanged (viewArea);
 		}
-
-		public event Action<ViewArea> OnContentChanged;
 	}
 	
 }

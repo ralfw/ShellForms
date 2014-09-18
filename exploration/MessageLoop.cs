@@ -11,22 +11,14 @@ namespace consoledialogs
 
 	class MessageLoop {
 		public void Run() {
-			OnStarted (Console.WindowWidth, Console.WindowHeight);
+			OnStarted ();
 			while (true) {
 				var key = Console.ReadKey ();
 				OnKey (key);
 			}
 		}
 
-		public void Update(ViewArea area) {
-			for (var row = 0; row < area.Canvas.Length; row++) {
-				Console.CursorLeft = area.X;
-				Console.CursorTop = area.Y + row;
-				Console.Write (area.Canvas [row]);
-			}
-		}
-
-		public event Action<int,int> OnStarted;
+		public event Action OnStarted;
 		public event Action<ConsoleKeyInfo> OnKey;
 	}
 

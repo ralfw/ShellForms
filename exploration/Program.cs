@@ -21,8 +21,6 @@ namespace consoledialogs
 
 			term.OnKey += canv.Process;
 			term.OnStarted += canv.Initialize;
-			canv.OnContentChanged += term.Update;
-
 
 			Textbox tb;
 			tb = new Textbox (5, 7, 10);

@@ -13,7 +13,7 @@ namespace consoledialogs
 	// der steht für ein char-array, das dann angezeigt wird
 
 	abstract class Control {
-		public abstract void Paint (ViewArea canvas);
+		public abstract void Paint ();
 	}
 	
 }

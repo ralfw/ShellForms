@@ -23,11 +23,12 @@ namespace consoledialogs
 			this.col = col;
 		}
 			
-		public override void Paint(ViewArea canvas) {
+		public override void Paint() {
 			var text = string.Format ("[{0}]", this.label).ToCharArray ();
 
-			var line = canvas.Canvas [this.row];
-			text.CopyTo (line, this.col);
+			Console.CursorLeft = this.col;
+			Console.CursorTop = this.row;
+			Console.Write (text);
 		}
 
 		public event Action On_pressed;
