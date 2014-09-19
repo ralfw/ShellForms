@@ -6,18 +6,12 @@ namespace shellforms
 {
 	class Begrüßungsdialog : Dialog {
 		public Begrüßungsdialog() {
-			Textbox tb;
-			tb = new Textbox (5, 7, 5);
-			tb.Name = "txtAnrede";
-			tb.Text = "Herr";
-			base.Add (tb);
-
-			var cb = new Checkbox (20, 7, "Frau");
+			var cb = new Checkbox (5, 7, "Frau");
 			cb.Name = "chkAnrede";
 			cb.Checked = true;
 			base.Add (cb);
 
-			tb = new Textbox (5, 8, 20);
+			var tb = new Textbox (5, 8, 20);
 			tb.Name = "txtNachname";
 			tb.Text = "Klöbner";
 			base.Add (tb);
@@ -38,13 +32,13 @@ namespace shellforms
 		}
 
 		private void btnBegrüßen_pressed() {
-			Begrüßung_angefordert((base["txtAnrede"] as Textbox).Text, (base["txtNachname"] as Textbox).Text);
+			Begrüßung_angefordert((base["chkAnrede"] as Checkbox).Checked, (base["txtNachname"] as Textbox).Text);
 		}
 
 		public void Gruß_anzeigen(string gruß) {
 			(base["lblGruß"] as Label).Text = gruß;
 		}
 
-		public event Action<string,string> Begrüßung_angefordert;
+		public event Action<bool,string> Begrüßung_angefordert;
 	}
 }
