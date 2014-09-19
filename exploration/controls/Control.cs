@@ -4,16 +4,16 @@ using System.Collections.Generic;
 
 namespace consoledialogs
 {
-	// eine hierarchie von controls muss gezeichnet werden
-	// womöglich aber auch nur ein teil, nämlich die, die sich verändert haben.
-	// beim zeichnen volle fidelity: nicht nur text, sondern auch farben (vorder/hintergrund)
-	// 
-
-	// device context bauen, auf dem man malen kann
-	// der steht für ein char-array, das dann angezeigt wird
-
 	abstract class Control {
+		public abstract bool ProcessKey (ConsoleKeyInfo key);
+
+		public abstract bool CanHaveFocus { get; }
+		public abstract void Focus ();
+		public abstract void Defocus();
+
 		public abstract void Paint ();
+
+		public string Name;
 	}
 	
 }

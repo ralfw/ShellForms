@@ -42,6 +42,7 @@
     </Compile>
     <Compile Include="controls\Button.cs" />
     <Compile Include="MessageLoop.cs" />
+    <Compile Include="controls\Label.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

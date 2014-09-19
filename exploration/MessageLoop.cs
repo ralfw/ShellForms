@@ -13,7 +13,14 @@ namespace consoledialogs
 		public void Run() {
 			OnStarted ();
 			while (true) {
+				var x = Console.CursorLeft;
+				var y = Console.CursorTop;
+
 				var key = Console.ReadKey ();
+
+				Console.CursorLeft = x;
+				Console.CursorTop = y;
+
 				OnKey (key);
 			}
 		}

@@ -19,23 +19,37 @@ namespace consoledialogs
 			var term = new MessageLoop ();
 			var canv = new Canvas ();
 
-			term.OnKey += canv.Process;
+			term.OnKey += canv.ProcessKey;
 			term.OnStarted += canv.Initialize;
 
 			Textbox tb;
-			tb = new Textbox (5, 7, 10);
-			tb.Text = "abc";
+			tb = new Textbox (5, 7, 5);
+			tb.Name = "anrede";
+			tb.Text = "Herr";
 			canv.Add (tb);
 		
-			tb = new Textbox (5, 9, 15);
-			tb.Text = "xy";
+			tb = new Textbox (5, 8, 20);
+			tb.Name = "nachname";
+			tb.Text = "Klöbner";
 			canv.Add (tb);
 
 			Button b;
-			b = new Button (5, 12, "OK");
-			b.On_pressed += () => Environment.Exit (0);
+			b = new Button (5, 10, "Begrüßen");
+			b.OnPressed += () => {
+				(canv["gruß"] as Label).Text = string.Format("Hallo, {0} {1}!", 
+														   (canv["anrede"] as Textbox).Text, 
+														   (canv["nachname"] as Textbox).Text);
+			};
 			canv.Add (b);
 
+
+			Label lb;
+			lb = new Label (5, 12) { Text = "Gruß: " };
+			canv.Add (lb);
+
+			lb = new Label (11, 12);
+			lb.Name = "gruß";
+			canv.Add (lb);
 
 			term.Run ();
 		}

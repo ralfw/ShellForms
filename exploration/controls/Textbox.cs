@@ -4,37 +4,62 @@ using System.Collections.Generic;
 
 namespace consoledialogs
 {
-	// eine hierarchie von controls muss gezeichnet werden
-	// womöglich aber auch nur ein teil, nämlich die, die sich verändert haben.
-	// beim zeichnen volle fidelity: nicht nur text, sondern auch farben (vorder/hintergrund)
-	// ein pfad von controls im baum hat den fokus. der muss controlspezifisch angezeigt werden.
-
-	// device context bauen, auf dem man malen kann
-	// der steht für ein char-array, das dann angezeigt wird
-		
 	class Textbox : Control {
 		int col;
 		int row;
 		int width;
+		int cursorCol;
+		bool hasFocus;
 
 		public Textbox(int col, int row, int width) {
 			this.width = width;
 			this.row = row;
 			this.col = col;
+			this.cursorCol = col;
 		}
+
+
+		public override bool CanHaveFocus { get { return true; } }
+		public override void Focus () { hasFocus = true; }
+		public override void Defocus() { hasFocus = false; }
+
+
+		public override bool ProcessKey(ConsoleKeyInfo key) {
+			if (key.KeyChar >= ' ') {
+				if (this.text.Length < this.width) {
+					this.text += key.KeyChar;
+					if (this.text.Length < this.width) this.cursorCol++;
+				} else {
+					this.text = this.text.Substring (0, this.text.Length - 1) + key.KeyChar;
+				}
+				return true;
+			}
+			return false;
+		}
+
 
 		public override void Paint() {
 			var text = (this.text + new string ('_', width - this.text.Length)).ToCharArray ();
 
 			Console.CursorLeft = this.col;
 			Console.CursorTop = this.row;
+
+			if (this.hasFocus)
+				Console.BackgroundColor = ConsoleColor.Cyan;
+
 			Console.Write (text);
+
+			if (this.hasFocus)
+				Console.CursorLeft = this.cursorCol;
+
+			Console.ResetColor ();
 		}
+
 
 		private string text;
 		public string Text { 
 			get{ return this.text; }
-			set { this.text = value; }
+			set { this.text = value; this.cursorCol = this.col + value.Length; }
 		}
 	}
 }

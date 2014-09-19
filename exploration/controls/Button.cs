@@ -4,34 +4,48 @@ using System.Collections.Generic;
 
 namespace consoledialogs
 {
-	// eine hierarchie von controls muss gezeichnet werden
-	// womöglich aber auch nur ein teil, nämlich die, die sich verändert haben.
-	// beim zeichnen volle fidelity: nicht nur text, sondern auch farben (vorder/hintergrund)
-	// 
-
-	// device context bauen, auf dem man malen kann
-	// der steht für ein char-array, das dann angezeigt wird
-
 	class Button : Control {
 		int col;
 		int row;
 		string label;
+		bool hasFocus;
 
 		public Button(int col, int row, string label) {
 			this.label = label;
 			this.row = row;
 			this.col = col;
 		}
+
+		public override bool CanHaveFocus { get { return true; } }
+		public override void Focus () { hasFocus = true; }
+		public override void Defocus() { hasFocus = false; }
+
+
+		public override bool ProcessKey(ConsoleKeyInfo key) {
+			if (key.Key == ConsoleKey.Enter) {
+				OnPressed ();
+				return true;
+			}
+			return false;
+		}
 			
+
 		public override void Paint() {
 			var text = string.Format ("[{0}]", this.label).ToCharArray ();
 
 			Console.CursorLeft = this.col;
 			Console.CursorTop = this.row;
+
+			if (this.hasFocus)
+				Console.BackgroundColor = ConsoleColor.Yellow;
+
 			Console.Write (text);
+
+			Console.ResetColor ();
 		}
 
-		public event Action On_pressed;
+
+		public event Action OnPressed;
 	}
-	
+
 }
