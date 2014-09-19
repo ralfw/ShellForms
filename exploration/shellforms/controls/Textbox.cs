@@ -74,10 +74,14 @@ namespace shellforms
 			Console.CursorLeft = this.col;
 			Console.CursorTop = this.row;
 
+			if (this.hasFocus)
+				Console.BackgroundColor = ConsoleColor.Gray;
+
 			Console.Write (text);
 
 			if (this.hasFocus)
 				Console.CursorLeft = this.cursorCol;
+			Console.ResetColor ();
 		}
 
 

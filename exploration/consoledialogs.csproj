@@ -43,6 +43,7 @@
     <Compile Include="shellforms\controls\ContainerControl.cs" />
     <Compile Include="Begrüßungsdialog.cs" />
     <Compile Include="shellforms\controls\Dialog.cs" />
+    <Compile Include="shellforms\controls\Checkbox.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -12,6 +12,11 @@ namespace shellforms
 			tb.Text = "Herr";
 			base.Add (tb);
 
+			var cb = new Checkbox (20, 7, "Frau");
+			cb.Name = "chkAnrede";
+			cb.Checked = true;
+			base.Add (cb);
+
 			tb = new Textbox (5, 8, 20);
 			tb.Name = "txtNachname";
 			tb.Text = "Klöbner";
