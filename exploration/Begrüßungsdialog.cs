@@ -39,7 +39,7 @@ namespace consoledialogs
 			base.Add (lb);
 		}
 
-		private void btnBegrüßen_pressed() {
+		private void btnBegrüßen_pressed(Control sender) {
 			Begrüßung_angefordert(
 				(base["chkAnrede"] as Checkbox).Checked, 
 				(base["rbSprache"] as Radiobuttongroup).SelectedChoiceIndex,

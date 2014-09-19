@@ -23,7 +23,7 @@ namespace shellforms.controls
 
 		public override bool ProcessKey(ConsoleKeyInfo key) {
 			if (key.Key == ConsoleKey.Enter) {
-				if (OnPressed != null) OnPressed ();
+				if (OnPressed != null) OnPressed (this);
 				return true;
 			}
 			return false;
@@ -45,7 +45,7 @@ namespace shellforms.controls
 		}
 
 
-		public event Action OnPressed;
+		public event Action<Control> OnPressed;
 	}
 
 }

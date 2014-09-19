@@ -1,17 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="shellforms/Canvas.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="shellforms/controls/Radiobuttongroup.cs">
     <Files>
-      <File FileName="shellforms/ShellForms.cs" Line="17" Column="17" />
-      <File FileName="shellforms/Canvas.cs" Line="6" Column="6" />
-      <File FileName="shellforms/controls/Button.cs" Line="21" Column="21" />
-      <File FileName="shellforms/controls/Checkbox.cs" Line="30" Column="30" />
-      <File FileName="shellforms/controls/ContainerControl.cs" Line="30" Column="30" />
-      <File FileName="shellforms/controls/Control.cs" Line="30" Column="30" />
-      <File FileName="shellforms/controls/Dialog.cs" Line="30" Column="30" />
-      <File FileName="shellforms/controls/Label.cs" Line="30" Column="30" />
-      <File FileName="shellforms/controls/Radiobuttongroup.cs" Line="30" Column="30" />
-      <File FileName="shellforms/controls/Textbox.cs" Line="30" Column="30" />
+      <File FileName="shellforms/controls/Radiobuttongroup.cs" Line="49" Column="49" />
+      <File FileName="shellforms/controls/Button.cs" Line="3" Column="3" />
+      <File FileName="shellforms/controls/Checkbox.cs" Line="24" Column="24" />
+      <File FileName="shellforms/controls/Textbox.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
