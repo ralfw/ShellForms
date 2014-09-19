@@ -41,6 +41,7 @@
     <Compile Include="controls\Label.cs" />
     <Compile Include="controls\Radiobuttongroup.cs" />
     <Compile Include="controls\Textbox.cs" />
+    <Compile Include="controls\Listbox.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
