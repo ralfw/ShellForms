@@ -27,17 +27,41 @@ namespace consoledialogs
 		public override bool ProcessKey(ConsoleKeyInfo key) {
 			if (key.KeyChar >= ' ') {
 				if (this.text.Length < this.width) {
-					this.text += key.KeyChar;
-					if (this.text.Length < this.width)
-						this.cursorCol++;
+					if ((this.cursorCol - this.col) >= this.text.Length) {
+						this.text += key.KeyChar;
+					} else {
+						this.text = this.text.Insert (this.cursorCol - this.col, key.KeyChar.ToString ());
+					}
 				} else {
-					this.text = this.text.Substring (0, this.text.Length - 1) + key.KeyChar;
+					this.text = this.text.Substring (0, this.cursorCol - this.col)
+								+ key.KeyChar.ToString ()
+								+ this.text.Substring (this.cursorCol - this.col+1);
 				}
+
+				if (this.cursorCol < this.col + this.width -1)
+					this.cursorCol++;
+
 				return true;
 			} else if (key.Key == ConsoleKey.Backspace) {
 				if (this.cursorCol > this.col) {
-					this.text = this.text.Substring (0, this.text.Length - 1);
+					if (this.cursorCol >= this.col + this.text.Length) {
+						this.text = this.text.Substring (0, this.text.Length - 1);
+					} else {
+						this.text = this.text.Substring(0, this.cursorCol - this.col - 1)
+							        + this.text.Substring (this.cursorCol - this.col);
+					}
 					this.cursorCol--;
+					return true;
+				}
+			} else if (key.Key == ConsoleKey.LeftArrow) {
+				if (this.cursorCol > this.col) {
+					this.cursorCol--;
+					return true;
+				}
+			} else if (key.Key == ConsoleKey.RightArrow) {
+				if (this.cursorCol < (this.col + this.text.Length)) {
+					this.cursorCol++;
+					return true;
 				}
 			}
 			return false;
