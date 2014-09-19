@@ -44,6 +44,7 @@
     <Compile Include="shellforms\controls\Dialog.cs" />
     <Compile Include="shellforms\controls\Checkbox.cs" />
     <Compile Include="shellforms\ShellForms.cs" />
+    <Compile Include="shellforms\controls\Radiobuttongroup.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

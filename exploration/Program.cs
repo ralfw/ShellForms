@@ -21,8 +21,14 @@ namespace shellforms
 			var dlg = new Begrüßungsdialog ();
 			sf.Canvas.Add (dlg);
 
-			dlg.Begrüßung_angefordert += (istFrau, nachname) => {
-				var gruß = string.Format("Hallo, {0} {1}!", istFrau ? "Frau" : "Herr", nachname);
+			dlg.Begrüßung_angefordert += (istFrau, sprache, nachname) => {
+				var formulierungen = new[]{"Guten Tag", "Good day", "Bonjour"};
+				var anreden = new[]{new[]{"Herr", "Frau"}, new[]{"Mr.", "Ms."}, new[]{"Monsieur", "Madame"}};
+
+				var gruß = string.Format("{0}, {1} {2}!", 
+					formulierungen[sprache],
+					anreden[sprache][istFrau ? 1 : 0],
+					nachname);
 				dlg.Gruß_anzeigen(gruß);
 			};
 

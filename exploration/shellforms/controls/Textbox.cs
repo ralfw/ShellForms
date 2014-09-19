@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace shellforms
 {
-	class Textbox : Control {
+	public class Textbox : Control {
 		int col;
 		int row;
 		int width;

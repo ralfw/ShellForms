@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace shellforms
 {
-	class Checkbox : Control {
+	public class Checkbox : Control {
 		int col;
 		int row;
 		string label;
@@ -53,4 +53,5 @@ namespace shellforms
 
 		public event Action OnPressed;
 	}
+
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace shellforms
 {
-	class Label : Control {
+	public class Label : Control {
 		int col;
 		int row;
 		int maxWidth;
