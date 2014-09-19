@@ -31,7 +31,7 @@ namespace shellforms
 			
 
 		public override void Paint() {
-			var text = string.Format ("[{0}]", this.label).ToCharArray ();
+			var text = string.Format ("[{0}]", this.label);
 
 			Console.CursorLeft = this.col;
 			Console.CursorTop = this.row;

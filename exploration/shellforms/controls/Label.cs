@@ -7,8 +7,12 @@ namespace shellforms
 	class Label : Control {
 		int col;
 		int row;
+		int maxWidth;
 
-		public Label(int col, int row) {
+		public Label(int col, int row) : this(col, row, 0){}
+	
+		public Label(int col, int row, int maxWidth) {
+			this.maxWidth = maxWidth;
 			this.row = row;
 			this.col = col;
 		}
@@ -22,8 +26,14 @@ namespace shellforms
 		}
 
 		public override void Paint() {
-			var text = string.Format ("{0}", this.text).ToCharArray ();
-
+			var text = string.Format ("{0}", this.text);
+			if (this.maxWidth > 0) {
+				if (text.Length > this.maxWidth)
+					text = text.Substring (0, maxWidth);
+				else
+					text = text.PadRight (this.maxWidth);
+			}
+				
 			Console.CursorLeft = this.col;
 			Console.CursorTop = this.row;
 

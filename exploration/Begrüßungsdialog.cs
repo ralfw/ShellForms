@@ -27,7 +27,7 @@ namespace shellforms
 			lb = new Label (5, 12) { Text = "Gruß: " };
 			base.Add (lb);
 
-			lb = new Label (11, 12);
+			lb = new Label (11, 12, 20);
 			lb.Name = "lblGruß";
 			base.Add (lb);
 		}

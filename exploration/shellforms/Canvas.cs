@@ -9,6 +9,11 @@ namespace shellforms
 
 		public void Initialize() {
 			Clear ();
+			foreach (var c in this.controls)
+				if (c.CanHaveFocus) {
+					c.Focus ();
+					break;
+				}
 			Paint ();
 		}
 
