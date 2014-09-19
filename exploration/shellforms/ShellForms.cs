@@ -9,9 +9,13 @@ namespace shellforms
 	// beim zeichnen volle fidelity: nicht nur text, sondern auch farben (vorder/hintergrund)
 	// 
 
-	class MessageLoop {
+	// device context bauen, auf dem man malen kann
+	// der steht für ein char-array, das dann angezeigt wird
+
+	class ShellForms {
 		public void Run() {
-			OnStarted ();
+			this.canvas.Initialize ();
+
 			while (true) {
 				var x = Console.CursorLeft;
 				var y = Console.CursorTop;
@@ -21,15 +25,14 @@ namespace shellforms
 				Console.CursorLeft = x;
 				Console.CursorTop = y;
 
-				OnKey (key);
+				this.canvas.ProcessKey (key);
 			}
 		}
 
-		public event Action OnStarted;
-		public event Action<ConsoleKeyInfo> OnKey;
+		private Canvas canvas = new Canvas();
+		public Canvas Canvas {
+			get { return this.canvas; }
+		}
 	}
 
-	// device context bauen, auf dem man malen kann
-	// der steht für ein char-array, das dann angezeigt wird
-	
 }

@@ -39,11 +39,11 @@
     <Compile Include="shellforms\controls\Label.cs" />
     <Compile Include="shellforms\controls\Textbox.cs" />
     <Compile Include="shellforms\Canvas.cs" />
-    <Compile Include="shellforms\MessageLoop.cs" />
     <Compile Include="shellforms\controls\ContainerControl.cs" />
     <Compile Include="Begrüßungsdialog.cs" />
     <Compile Include="shellforms\controls\Dialog.cs" />
     <Compile Include="shellforms\controls\Checkbox.cs" />
+    <Compile Include="shellforms\ShellForms.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

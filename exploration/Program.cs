@@ -16,23 +16,17 @@ namespace shellforms
 	class MainClass
 	{
 		public static void Main() {
-			var term = new MessageLoop ();
-			var canv = new Canvas ();
-
-			term.OnKey += canv.ProcessKey;
-			term.OnStarted += canv.Initialize;
+			var sf = new ShellForms ();
 
 			var dlg = new Begrüßungsdialog ();
-			canv.Add (dlg);
+			sf.Canvas.Add (dlg);
 
 			dlg.Begrüßung_angefordert += (anrede, nachname) => {
 				var gruß = string.Format("Hallo, {0} {1}!", anrede, nachname);
 				dlg.Gruß_anzeigen(gruß);
 			};
 
-			term.Run ();
+			sf.Run ();
 		}
 	}
-		
-
 }
