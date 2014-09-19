@@ -28,11 +28,17 @@ namespace consoledialogs
 			if (key.KeyChar >= ' ') {
 				if (this.text.Length < this.width) {
 					this.text += key.KeyChar;
-					if (this.text.Length < this.width) this.cursorCol++;
+					if (this.text.Length < this.width)
+						this.cursorCol++;
 				} else {
 					this.text = this.text.Substring (0, this.text.Length - 1) + key.KeyChar;
 				}
 				return true;
+			} else if (key.Key == ConsoleKey.Backspace) {
+				if (this.cursorCol > this.col) {
+					this.text = this.text.Substring (0, this.text.Length - 1);
+					this.cursorCol--;
+				}
 			}
 			return false;
 		}
