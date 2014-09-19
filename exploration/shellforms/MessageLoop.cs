@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace consoledialogs
+namespace shellforms
 {
 	// eine hierarchie von controls muss gezeichnet werden
 	// womöglich aber auch nur ein teil, nämlich die, die sich verändert haben.

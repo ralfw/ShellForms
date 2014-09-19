@@ -34,13 +34,15 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Dialog.cs" />
     <Compile Include="shellforms\controls\Button.cs" />
     <Compile Include="shellforms\controls\Control.cs" />
     <Compile Include="shellforms\controls\Label.cs" />
     <Compile Include="shellforms\controls\Textbox.cs" />
     <Compile Include="shellforms\Canvas.cs" />
     <Compile Include="shellforms\MessageLoop.cs" />
+    <Compile Include="shellforms\controls\ContainerControl.cs" />
+    <Compile Include="Begrüßungsdialog.cs" />
+    <Compile Include="shellforms\controls\Dialog.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

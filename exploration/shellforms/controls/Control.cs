@@ -2,9 +2,9 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace consoledialogs
+namespace shellforms
 {
-	abstract class Control {
+	public abstract class Control {
 		public abstract bool ProcessKey (ConsoleKeyInfo key);
 
 		public abstract bool CanHaveFocus { get; }
@@ -15,5 +15,4 @@ namespace consoledialogs
 
 		public string Name;
 	}
-	
 }

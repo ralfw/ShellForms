@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace consoledialogs
+namespace shellforms
 {
 	// eine hierarchie von controls muss gezeichnet werden
 	// womöglich aber auch nur ein teil, nämlich die, die sich verändert haben.
@@ -22,7 +22,8 @@ namespace consoledialogs
 			term.OnKey += canv.ProcessKey;
 			term.OnStarted += canv.Initialize;
 
-			var dlg = new Dialog (canv);
+			var dlg = new Begrüßungsdialog ();
+			canv.Add (dlg);
 
 			dlg.Begrüßung_angefordert += (anrede, nachname) => {
 				var gruß = string.Format("Hallo, {0} {1}!", anrede, nachname);
