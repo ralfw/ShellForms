@@ -2,7 +2,10 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace shellforms
+using shellforms.controls;
+
+
+namespace consoledialogs
 {
 	class Begrüßungsdialog : Dialog {
 		public Begrüßungsdialog() {
