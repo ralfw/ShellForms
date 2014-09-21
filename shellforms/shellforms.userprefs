@@ -3,9 +3,9 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="shellforms.tests/Program.cs">
     <Files>
       <File FileName="shellforms/controls/Listbox.cs" Line="50" Column="50" />
-      <File FileName="shellforms/controls/Dialog.cs" Line="9" Column="9" />
-      <File FileName="shellforms/ShellForms.cs" Line="27" Column="27" />
-      <File FileName="shellforms.tests/Program.cs" Line="7" Column="7" />
+      <File FileName="shellforms/controls/Screen.cs" Line="23" Column="23" />
+      <File FileName="shellforms/ShellForms.cs" Line="26" Column="26" />
+      <File FileName="shellforms.tests/Program.cs" Line="47" Column="47" />
       <File FileName="shellforms/controls/Textbox.cs" Line="1" Column="1" />
       <File FileName="shellforms/controls/ContainerControl.cs" Line="1" Column="1" />
     </Files>

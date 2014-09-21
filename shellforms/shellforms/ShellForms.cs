@@ -7,7 +7,7 @@ using shellforms.controls;
 namespace shellforms
 {
 	public class ShellForms {
-		private Stack<Control> controls = new Stack<Control>();
+		private Stack<Screen> screens = new Stack<Screen>();
 
 
 		public void Run() {
@@ -27,13 +27,13 @@ namespace shellforms
 		}
 			
 
-		public void Push(Control control) {
-			this.controls.Push (control);
+		public void Push(Screen control) {
+			this.screens.Push (control);
 			control.Focus ();
 		}
 
 		public void Pop() {
-			this.controls.Pop ();
+			this.screens.Pop ();
 		}
 
 
@@ -49,12 +49,18 @@ namespace shellforms
 
 
 		private void ProcessKey(ConsoleKeyInfo key) {
-			this.controls.Peek ().ProcessKey (key);
+			this.screens.Peek ().ProcessKey (key);
 			Paint ();
 		}
 			
 		private void Paint() {
-			this.controls.Peek ().Paint ();
+			var titles = this.screens.Select (c => c.Title).Reverse ();
+			var breadcrumps = string.Join ("/", titles);
+			Console.CursorLeft = Console.WindowWidth / 2 - breadcrumps.Length / 2;
+			Console.CursorTop = 0;
+			Console.Write (breadcrumps);
+
+			this.screens.Peek ().Paint ();
 		}
 	}
 }

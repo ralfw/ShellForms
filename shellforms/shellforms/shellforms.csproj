@@ -36,11 +36,11 @@
     <Compile Include="controls\Checkbox.cs" />
     <Compile Include="controls\ContainerControl.cs" />
     <Compile Include="controls\Control.cs" />
-    <Compile Include="controls\Dialog.cs" />
     <Compile Include="controls\Label.cs" />
     <Compile Include="controls\Radiobuttongroup.cs" />
     <Compile Include="controls\Textbox.cs" />
     <Compile Include="controls\Listbox.cs" />
+    <Compile Include="controls\Screen.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -9,13 +9,13 @@ namespace shellforms.tests
 		{
 			var sf = new ShellForms ();
 		
-			sf.Push (new Maindialog (sf));
+			sf.Push (new Maindialog (sf) {Title = "Main"});
 
 			sf.Run ();
 		}
 	}
 
-	class Maindialog : Dialog {
+	class Maindialog : Screen {
 		public Maindialog(ShellForms sf) {
 			var tb = new Textbox (2, 4, 15);
 			tb.Text = "Hello, world!";
@@ -45,13 +45,13 @@ namespace shellforms.tests
 			base.Add (btn2);
 
 			btn2.OnPressed += _ => {
-				sf.Push (new Nesteddialog (sf));
+				sf.Push (new Nesteddialog (sf){Title = "Nested"});
 				sf.Refresh ();
 			};
 		}
 	}
 
-	class Nesteddialog : Dialog {
+	class Nesteddialog : Screen {
 		public Nesteddialog(ShellForms sf) {
 			base.Add (new Label (5, 5){ Text = "A nested dialog!" });
 

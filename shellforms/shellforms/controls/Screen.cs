@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace shellforms.controls
 {
 
-	public class Dialog : ContainerControl {
+	public class Screen : ContainerControl {
 		private int focusIndex;
 
 		public override bool ProcessKey(ConsoleKeyInfo key) {
@@ -66,5 +66,8 @@ namespace shellforms.controls
 			if (this.focusIndex >= 0)
 				this.controls [this.focusIndex].Paint ();
 		}
+
+
+		public string Title;
 	}
 }

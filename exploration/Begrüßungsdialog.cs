@@ -7,8 +7,10 @@ using shellforms.controls;
 
 namespace consoledialogs
 {
-	class Begrüßungsdialog : Dialog {
+	class Begrüßungsdialog : Screen {
 		public Begrüßungsdialog() {
+			this.Title = "Begrüßung";
+
 			var cb = new Checkbox (5, 7, "Frau");
 			cb.Name = "chkAnrede";
 			cb.Checked = true;
