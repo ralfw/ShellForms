@@ -49,4 +49,7 @@
   <ItemGroup>
     <Folder Include="controls\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="backlog.txt" />
+  </ItemGroup>
 </Project>

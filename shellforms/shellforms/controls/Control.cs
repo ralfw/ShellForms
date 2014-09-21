@@ -6,16 +6,16 @@ namespace shellforms.controls
 {
 	/*
 	 * Controls to implement:
-	 * - listbox: multi-select
-	 * - multi-line textbox (no scrolling)
+	 * - mask char for textbox
+	 * - multi-line textbox
 	 * 
 	 * Enable/disable controls, start with Button.
 	 * 
 	 * Make it easier to build a dialog, e.g. as a list of properties.
 	 * 
-	 * Separate focus display from Paint().
-	 * 
 	 * Also introduce invalidation when properties are changed by the environment.
+	 * 
+	 * Make cursor invisible during Paint() if possible.
 	 */
 	public abstract class Control {
 		public abstract bool ProcessKey (ConsoleKeyInfo key);
