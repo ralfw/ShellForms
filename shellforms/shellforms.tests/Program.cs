@@ -43,6 +43,7 @@ namespace shellforms.tests
 			rbg.Choices = new[]{ "dog", "cat", "mouse", "ant" };
 			base.Add (rbg);
 
+
 			var btn2 = new Button (2, 17, "Open new Dlg...");
 			base.Add (btn2);
 
@@ -52,16 +53,26 @@ namespace shellforms.tests
 			};
 
 			base.Add (new Label (2, 19){ Text = "Type command, hit Enter: " });
+
 			var cmd = new Command (26, 19, 10);
 			base.Add (cmd);
 
 			cmd.OnOrdered += sender => new Messagebox ("Command entered", sender.Text).Show (sf);
 
+			var mb = new Menubar (2, 21);
+			mb.Menuitems = new[]{ "Show message box", "Reset command"};
+			base.Add (mb);
 
-			var btnMb = new Button (2, 21, "Show message box...");
-			base.Add (btnMb);
-
-			btnMb.OnPressed += _ => new Messagebox ("Test", "A msg\nbox with a\nmulti-line message.").Show (sf);
+			mb.OnSelected += (sender, i) => {
+				switch(i) {
+				case 0:
+					new Messagebox ("Test", "A msg\nbox with a\nmulti-line message.").Show (sf);
+					break;
+				case 1:
+					cmd.Text = "";
+					break;
+				}
+			};
 		}
 	}
 
@@ -78,4 +89,6 @@ namespace shellforms.tests
 			};
 		}
 	}
+
+
 }
