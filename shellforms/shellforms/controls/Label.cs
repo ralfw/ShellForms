@@ -26,18 +26,22 @@ namespace shellforms.controls
 		}
 
 		public override void Paint() {
-			var text = string.Format ("{0}", this.text);
-			if (this.maxWidth > 0) {
-				if (text.Length > this.maxWidth)
-					text = text.Substring (0, maxWidth);
+			var text = this.text.Split ('\n');
+			text = text.Select (l => {
+				if (this.maxWidth > 0) {
+					if (l.Length > this.maxWidth)
+						return l.Substring (0, maxWidth);
+					else
+						return l.PadRight (this.maxWidth);
+				}
 				else
-					text = text.PadRight (this.maxWidth);
-			}
-				
-			Console.CursorLeft = this.col;
-			Console.CursorTop = this.row;
+					return l;
+			}).ToArray ();
 
-			Console.Write (text);
+			for (var i = 0; i < text.Length; i++) {
+				Console.SetCursorPosition (this.col, this.row + i);
+				Console.Write (text [i]);
+			}
 		}
 
 		private string text;

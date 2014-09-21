@@ -42,6 +42,7 @@
     <Compile Include="controls\Listbox.cs" />
     <Compile Include="controls\Screen.cs" />
     <Compile Include="controls\Command.cs" />
+    <Compile Include="controls\Messagebox.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

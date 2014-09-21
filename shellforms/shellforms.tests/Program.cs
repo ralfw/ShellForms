@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using shellforms.controls;
 
 namespace shellforms.tests
@@ -53,7 +55,13 @@ namespace shellforms.tests
 			var cmd = new Command (26, 19, 10);
 			base.Add (cmd);
 
-			cmd.OnOrdered += sender => this.Title = sender.Text;
+			cmd.OnOrdered += sender => new Messagebox ("Command entered", sender.Text).Show (sf);
+
+
+			var btnMb = new Button (2, 21, "Show message box...");
+			base.Add (btnMb);
+
+			btnMb.OnPressed += _ => new Messagebox ("Test", "A msg\nbox with a\nmulti-line message.").Show (sf);
 		}
 	}
 

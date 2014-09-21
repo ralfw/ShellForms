@@ -27,9 +27,9 @@ namespace shellforms
 		}
 			
 
-		public void Push(Screen control) {
-			this.screens.Push (control);
-			control.Focus ();
+		public void Push(Screen screen) {
+			this.screens.Push (screen);
+			screen.Focus ();
 		}
 
 		public void Pop() {
