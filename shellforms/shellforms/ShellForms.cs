@@ -6,7 +6,7 @@ namespace shellforms
 {
 	public class ShellForms {
 		public void Run() {
-			this.canvas.Initialize ();
+			this.canvas.Refresh ();
 
 			while (true) {
 				var x = Console.CursorLeft;

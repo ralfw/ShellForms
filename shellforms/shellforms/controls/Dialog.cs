@@ -6,11 +6,10 @@ namespace shellforms.controls
 {
 
 	public class Dialog : ContainerControl {
-		private bool hasFocus;
 		private int focusIndex;
 
 		public override bool ProcessKey(ConsoleKeyInfo key) {
-			if (this.controls [this.focusIndex].ProcessKey (key))
+			if (this.focusIndex >= 0 && this.controls [this.focusIndex].ProcessKey (key))
 				return true;
 
 			if (key.Key == ConsoleKey.Tab) {
@@ -19,6 +18,7 @@ namespace shellforms.controls
 			}
 
 			return false;
+
 		}
 			
 		private void Move_focus(bool forward) {
@@ -30,7 +30,7 @@ namespace shellforms.controls
 			var i = this.focusIndex;
 			while (n > 0) {
 				if (forward)
-					i = (i + 1) % n;
+					i = (i + 1) % this.controls.Count;
 				else
 					i = i == 0 ? n - 1 : i - 1;
 				focusCandidateIndexSequence.Add (i);
@@ -43,7 +43,8 @@ namespace shellforms.controls
 					break;
 				}
 
-			this.controls[this.focusIndex].Focus();
+			if (this.focusIndex >= 0)
+				this.controls[this.focusIndex].Focus();
 		}
 
 
@@ -52,11 +53,9 @@ namespace shellforms.controls
 		public override void Focus () { 
 			this.focusIndex = -1;
 			Move_focus (true);
-			hasFocus = true;
 		}
 
 		public override void Defocus() { 
-			hasFocus = false;
 			foreach (var c in this.controls)
 				c.Defocus ();
 		}
@@ -64,7 +63,8 @@ namespace shellforms.controls
 
 		public override void Paint() {
 			base.Paint ();
-			this.controls [this.focusIndex].Paint ();
+			if (this.focusIndex >= 0)
+				this.controls [this.focusIndex].Paint ();
 		}
 	}
 }
