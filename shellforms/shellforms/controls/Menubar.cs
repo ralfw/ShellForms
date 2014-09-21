@@ -51,7 +51,7 @@ namespace shellforms.tests
 				if (i > 0) Console.Write (" | ");
 
 				if (this.hasFocus && i == this.selectedIndex)
-					Console.BackgroundColor = ConsoleColor.Cyan;
+					Console.BackgroundColor = ConsoleColor.Gray;
 					
 				Console.Write (this.menuitems[i]);
 
