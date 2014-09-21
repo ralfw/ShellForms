@@ -17,6 +17,7 @@ namespace shellforms.controls
 			this.col = col;
 			this.cursorCol = col;
 			this.CanHaveFocus = true;
+			this.IsPassword = false;
 		}
 
 
@@ -70,7 +71,9 @@ namespace shellforms.controls
 
 
 		public override void Paint() {
-			var text = (this.text + new string ('_', width - this.text.Length)).ToCharArray ();
+			var text = this.IsPassword ? new string ('*', this.text.Length) : this.text;
+
+			text = (text + new string ('_', width - text.Length));
 
 			Console.CursorLeft = this.col;
 			Console.CursorTop = this.row;
@@ -91,7 +94,8 @@ namespace shellforms.controls
 			get{ return this.text; }
 			set { this.text = value; this.cursorCol = this.col + value.Length; }
 		}
+
+
+		public bool IsPassword { get; set; }
 	}
-
-
 }

@@ -69,6 +69,19 @@ namespace shellforms.tests
 			var cb = new Checkbox (2, 23, "The red pill?");
 			cb.Checked = true;
 			base.Add (cb);
+
+
+			base.Add (new Label (2, 25){ Text = "Password: " });
+
+			var txtPwd = new Textbox (11, 25, 8);
+			txtPwd.Text = "geheim";
+			txtPwd.IsPassword = true;
+			base.Add (txtPwd);
+
+			btn = new Button (21, 25, "Show Password...");
+			base.Add (btn);
+
+			btn.OnPressed += sender => new Messagebox ("Password", txtPwd.Text).Show (sf);
 		}
 	}
 
