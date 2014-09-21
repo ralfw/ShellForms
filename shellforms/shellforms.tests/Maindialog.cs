@@ -69,6 +69,10 @@ namespace shellforms.tests
 			var cb = new Checkbox (2, 23, "The red pill?");
 			cb.Checked = true;
 			base.Add (cb);
+
+
+			var lb2 = new Listbox (2, 25, 3);
+			base.Add (lb2);
 		}
 	}
 

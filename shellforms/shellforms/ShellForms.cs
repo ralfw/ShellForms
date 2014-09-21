@@ -10,6 +10,11 @@ namespace shellforms
 		private Stack<Screen> screens = new Stack<Screen>();
 
 
+		public void Run(Screen screen) {
+			this.Push (screen);
+			this.Run ();
+		}
+
 		public void Run() {
 			Refresh ();
 

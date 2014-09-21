@@ -18,6 +18,7 @@ namespace shellforms.controls
 			this.row = row;
 			this.col = col;
 			this.height = height;
+			this.width = 1;
 		}
 
 		public override bool CanHaveFocus { get { return true; } }
@@ -82,13 +83,15 @@ namespace shellforms.controls
 			}
 		}
 
-		private string[] items;
+		private string[] items = new string[0];
 		public string[] Items {
 			get { return this.items; }
 			set { 
 				this.items = value; 
 				if (this.height == 0) this.height = value.Length;
 				this.width = value.Max (item => item.Length) + 1;
+				if (this.width == 0)
+					this.width = 1;
 				this.topVisibleItemIndex = 0;
 				this.selectedItemsIndexes = new List<int>();
 			}
