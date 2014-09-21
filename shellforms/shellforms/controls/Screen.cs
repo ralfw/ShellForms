@@ -8,6 +8,10 @@ namespace shellforms.controls
 	public class Screen : ContainerControl {
 		private int focusIndex;
 
+		public Screen() {
+			this.CanHaveFocus = true;
+		}
+
 		public override bool ProcessKey(ConsoleKeyInfo key) {
 			if (this.focusIndex >= 0 && this.controls [this.focusIndex].ProcessKey (key))
 				return true;
@@ -48,7 +52,7 @@ namespace shellforms.controls
 		}
 
 
-		public override bool CanHaveFocus { get { return true; } }
+		public override bool CanHaveFocus { get; set; }
 
 		public override void Focus () { 
 			this.focusIndex = -1;

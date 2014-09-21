@@ -16,10 +16,11 @@ namespace shellforms.controls
 			this.row = row;
 			this.col = col;
 			this.cursorCol = col;
+			this.CanHaveFocus = true;
 		}
 
 
-		public override bool CanHaveFocus { get { return true; } }
+		public override bool CanHaveFocus { get; set; }
 		public override void Focus () { hasFocus = true; }
 		public override void Defocus() { hasFocus = false; }
 

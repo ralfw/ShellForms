@@ -1,12 +1,19 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="shellforms/controls/Listbox.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="shellforms.tests/Maindialog.cs">
     <Files>
-      <File FileName="shellforms/controls/Menubar.cs" Line="17" Column="17" />
-      <File FileName="shellforms/ShellForms.cs" Line="3" Column="3" />
-      <File FileName="shellforms/controls/Listbox.cs" Line="42" Column="42" />
-      <File FileName="shellforms.tests/Program.cs" Line="24" Column="24" />
+      <File FileName="shellforms/controls/Menubar.cs" Line="24" Column="24" />
+      <File FileName="shellforms/ShellForms.cs" Line="1" Column="1" />
+      <File FileName="shellforms/controls/Listbox.cs" Line="5" Column="5" />
+      <File FileName="shellforms.tests/Program.cs" Line="1" Column="1" />
       <File FileName="shellforms.tests/Maindialog.cs" Line="35" Column="35" />
+      <File FileName="shellforms/controls/Control.cs" Line="1" Column="1" />
+      <File FileName="shellforms/controls/Button.cs" Line="1" Column="1" />
+      <File FileName="shellforms/controls/Checkbox.cs" Line="1" Column="1" />
+      <File FileName="shellforms/controls/Label.cs" Line="1" Column="1" />
+      <File FileName="shellforms/controls/Radiobuttongroup.cs" Line="1" Column="1" />
+      <File FileName="shellforms/controls/Textbox.cs" Line="1" Column="1" />
+      <File FileName="shellforms/controls/Screen.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

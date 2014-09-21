@@ -7,13 +7,14 @@ using shellforms.controls;
 namespace csvviewer
 {
 	class MainDlg : Screen {
-		Listbox lbTable;
+		Listbox lstTable;
 
 		public MainDlg() {
 			this.Title = "CSV Viewer";
 
-			this.lbTable = new Listbox (2, 2, Console.WindowHeight - 5);
-			base.Add (lbTable);
+			this.lstTable = new Listbox (2, 2, Console.WindowWidth - 5, Console.WindowHeight - 5);
+			lstTable.CanHaveFocus = false;
+			base.Add (lstTable);
 
 			var mb = new Menubar (2, Console.WindowHeight - 2);
 			mb.Menuitems = new[]{ "First", "Last", "Exit"};
@@ -30,7 +31,7 @@ namespace csvviewer
 			case 1:
 				OnLastPageRequested ();
 				break;
-			case 4:
+			case 2:
 				OnExitRequested ();
 				break;
 			}
@@ -38,14 +39,12 @@ namespace csvviewer
 
 
 		public void Display_page(IEnumerable<string> pagelines) {
-			this.lbTable.Items = pagelines.ToArray();
+			this.lstTable.Items = pagelines.ToArray();
 		}
 
 
 		public event Action OnFirstPageRequested;
 		public event Action OnLastPageRequested;
-		public event Action OnNextPageRequested;
-		public event Action OnPrevPageRequested;
 		public event Action OnExitRequested;
 	}
 }

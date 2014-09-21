@@ -21,7 +21,7 @@ namespace shellforms.tests
 
 			btn.OnPressed += _ => lbl.Text = tb.Text;
 
-			var lst = new Listbox (2, 8, 3);
+			var lst = new Listbox (2, 8, 20, 3);
 			lst.Items = new[]{ "multi", "selection", "listbox", "with", "scrolling" };
 			lst.MultipleSelect = true;
 			base.Add (lst);
@@ -69,10 +69,6 @@ namespace shellforms.tests
 			var cb = new Checkbox (2, 23, "The red pill?");
 			cb.Checked = true;
 			base.Add (cb);
-
-
-			var lb2 = new Listbox (2, 25, 3);
-			base.Add (lb2);
 		}
 	}
 

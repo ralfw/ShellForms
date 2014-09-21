@@ -13,15 +13,17 @@ namespace shellforms.controls
 		int topVisibleItemIndex;
 		int focusedItemIndex;
 
-		public Listbox(int col, int row) : this(col,row,0){}
-		public Listbox(int col, int row, int height) {
+		public Listbox(int col, int row) : this(col,row,0,0){}
+		public Listbox(int col, int row, int width) : this(col,row,width,0){}
+		public Listbox(int col, int row, int width, int height) {
 			this.row = row;
 			this.col = col;
+			this.width = width;
 			this.height = height;
-			this.width = 1;
+			CanHaveFocus = true;
 		}
 
-		public override bool CanHaveFocus { get { return true; } }
+		public override bool CanHaveFocus { get; set; }
 		public override void Focus () { hasFocus = true; }
 		public override void Defocus() { hasFocus = false; }
 
@@ -88,10 +90,16 @@ namespace shellforms.controls
 			get { return this.items; }
 			set { 
 				this.items = value; 
-				if (this.height == 0) this.height = value.Length;
-				this.width = value.Max (item => item.Length) + 1;
-				if (this.width == 0)
-					this.width = 1;
+
+				if (this.height <= 0) 
+					this.height = value.Length;
+
+				if (this.width <= 0) {
+					this.width = value.Max (item => item.Length) + 1;
+					if (this.width == 0)
+						this.width = 1;
+				}
+
 				this.topVisibleItemIndex = 0;
 				this.selectedItemsIndexes = new List<int>();
 			}

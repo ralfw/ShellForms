@@ -17,7 +17,7 @@ namespace shellforms.controls
 			this.col = col;
 		}
 
-		public override bool CanHaveFocus { get { return false; } }
+		public override bool CanHaveFocus { get { return false; } set { } }
 		public override void Focus () {  }
 		public override void Defocus() {  }
 

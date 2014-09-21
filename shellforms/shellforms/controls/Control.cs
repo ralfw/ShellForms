@@ -20,7 +20,7 @@ namespace shellforms.controls
 	public abstract class Control {
 		public abstract bool ProcessKey (ConsoleKeyInfo key);
 
-		public abstract bool CanHaveFocus { get; }
+		public abstract bool CanHaveFocus { get; set; }
 		public abstract void Focus ();
 		public abstract void Defocus();
 
