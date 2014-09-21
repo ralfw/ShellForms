@@ -48,6 +48,12 @@ namespace shellforms.tests
 				sf.Push (new Nesteddialog (sf){Title = "Nested"});
 				sf.Refresh ();
 			};
+
+			base.Add (new Label (2, 19){ Text = "Type command, hit Enter: " });
+			var cmd = new Command (26, 19, 10);
+			base.Add (cmd);
+
+			cmd.OnOrdered += sender => this.Title = sender.Text;
 		}
 	}
 

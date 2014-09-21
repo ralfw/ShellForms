@@ -34,8 +34,8 @@ namespace shellforms.controls
 					this.selectedItemsIndexes.Clear ();
 					this.selectedItemsIndexes.Add (this.focusedItemIndex);
 				}
-				if (OnPressed != null)
-					OnPressed (this, this.focusedItemIndex);
+				if (OnSelectionChanged != null)
+					OnSelectionChanged (this, this.focusedItemIndex);
 				return true;
 			} else if (key.Key == ConsoleKey.DownArrow) {
 				if (this.focusedItemIndex < this.items.Length - 1)
@@ -110,6 +110,6 @@ namespace shellforms.controls
 		public bool MultipleSelect;
 
 
-		public event Action<Listbox,int> OnPressed;
+		public event Action<Listbox,int> OnSelectionChanged;
 	}
 }

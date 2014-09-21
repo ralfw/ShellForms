@@ -23,8 +23,8 @@ namespace shellforms.controls
 		public override bool ProcessKey(ConsoleKeyInfo key) {
 			if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.Spacebar) {
 				this.selectedChoiceIndex = this.focusedChoice;
-				if (OnPressed != null)
-					OnPressed (this, this.selectedChoiceIndex);
+				if (OnSelectionChanged != null)
+					OnSelectionChanged (this, this.selectedChoiceIndex);
 				return true;
 			} else if (key.Key == ConsoleKey.DownArrow) {
 				if (this.focusedChoice < this.choices.Length - 1)
@@ -70,6 +70,6 @@ namespace shellforms.controls
 			}
 		}
 
-		public event Action<Radiobuttongroup,int> OnPressed;
+		public event Action<Radiobuttongroup,int> OnSelectionChanged;
 	}
 }
