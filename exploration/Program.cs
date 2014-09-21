@@ -22,7 +22,7 @@ namespace consoledialogs
 			var sf = new ShellForms ();
 
 			var dlg = new Begrüßungsdialog ();
-			sf.Canvas.Add (dlg);
+			sf.Push (dlg);
 
 			dlg.Begrüßung_angefordert += (istFrau, sprache, nachname) => {
 				var formulierungen = new[]{"Guten Tag", "Good day", "Bonjour"};

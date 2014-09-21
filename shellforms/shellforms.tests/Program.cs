@@ -9,7 +9,7 @@ namespace shellforms.tests
 		{
 			var sf = new ShellForms ();
 		
-			sf.Canvas.Push (new Maindialog (sf));
+			sf.Push (new Maindialog (sf));
 
 			sf.Run ();
 		}
@@ -45,8 +45,8 @@ namespace shellforms.tests
 			base.Add (btn2);
 
 			btn2.OnPressed += _ => {
-				sf.Canvas.Push (new Nesteddialog (sf));
-				sf.Canvas.Refresh ();
+				sf.Push (new Nesteddialog (sf));
+				sf.Refresh ();
 			};
 		}
 	}
@@ -59,8 +59,8 @@ namespace shellforms.tests
 			base.Add(btn);
 
 			btn.OnPressed += _ => {
-				sf.Canvas.Pop ();
-				sf.Canvas.Refresh ();
+				sf.Pop ();
+				sf.Refresh ();
 			};
 		}
 	}
