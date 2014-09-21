@@ -26,9 +26,16 @@ namespace shellforms.controls
 
 		public override bool ProcessKey(ConsoleKeyInfo key) {
 			if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.Spacebar) {
-				this.selectedItemIndex = this.selectedItemIndex == this.focusedItemIndex ? -1 : this.focusedItemIndex;
+				if (this.selectedItemsIndexes.Contains (this.focusedItemIndex))
+					this.selectedItemsIndexes.Remove (this.focusedItemIndex);
+				else if (this.MultipleSelect)
+					this.selectedItemsIndexes.Add (this.focusedItemIndex);
+				else {
+					this.selectedItemsIndexes.Clear ();
+					this.selectedItemsIndexes.Add (this.focusedItemIndex);
+				}
 				if (OnPressed != null)
-					OnPressed (this);
+					OnPressed (this, this.focusedItemIndex);
 				return true;
 			} else if (key.Key == ConsoleKey.DownArrow) {
 				if (this.focusedItemIndex < this.items.Length - 1)
@@ -61,8 +68,11 @@ namespace shellforms.controls
 				else if (i == this.height - 1 && itemIndex < this.items.Length - 1)	text += "\u2193";
 				else text += " ";
 
-				if (this.selectedItemIndex == itemIndex)
+				if (this.selectedItemsIndexes.Contains (itemIndex)) {
+					if (this.focusedItemIndex == itemIndex && this.hasFocus)
+						Console.ForegroundColor = ConsoleColor.White;
 					Console.BackgroundColor = ConsoleColor.Cyan;
+				}
 				else if (this.focusedItemIndex == itemIndex && this.hasFocus)
 					Console.BackgroundColor = ConsoleColor.Gray;
 
@@ -80,20 +90,26 @@ namespace shellforms.controls
 				if (this.height == 0) this.height = value.Length;
 				this.width = value.Max (item => item.Length) + 1;
 				this.topVisibleItemIndex = 0;
-				this.selectedItemIndex = -1;
+				this.selectedItemsIndexes = new List<int>();
 			}
 		}
 
-		private int selectedItemIndex;
-		public int SelectedItemIndex {
-			get { return this.selectedItemIndex; }
+		private List<int> selectedItemsIndexes = new List<int> ();
+		public int[] SelectedItemsIndexes {
+			get { return this.selectedItemsIndexes.ToArray(); }
 			set { 
-				if (value < 0 || value >= this.items.Length)
-					throw new InvalidOperationException ("Index of selected choice out of range!");
-				this.selectedItemIndex = value; 
+				if (!this.MultipleSelect && value.Length > 1)
+					throw new InvalidOperationException ("Listbox does not allow multiple selections!");
+				if (value.Any(i => i<0 || i>=this.items.Length))
+					throw new InvalidOperationException ("At least one of selected items indexes out of range!");
+				this.selectedItemsIndexes = new List<int>(value); 
 			}
 		}
 
-		public event Action<Control> OnPressed;
+
+		public bool MultipleSelect;
+
+
+		public event Action<Listbox,int> OnPressed;
 	}
 }

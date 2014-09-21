@@ -51,7 +51,7 @@ namespace shellforms.controls
 		}
 
 
-		public event Action<Control> OnPressed;
+		public event Action<Checkbox> OnPressed;
 	}
 
 }

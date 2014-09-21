@@ -24,7 +24,7 @@ namespace shellforms.controls
 			if (key.Key == ConsoleKey.Enter || key.Key == ConsoleKey.Spacebar) {
 				this.selectedChoiceIndex = this.focusedChoice;
 				if (OnPressed != null)
-					OnPressed (this);
+					OnPressed (this, this.selectedChoiceIndex);
 				return true;
 			} else if (key.Key == ConsoleKey.DownArrow) {
 				if (this.focusedChoice < this.choices.Length - 1)
@@ -70,6 +70,6 @@ namespace shellforms.controls
 			}
 		}
 
-		public event Action<Control> OnPressed;
+		public event Action<Radiobuttongroup,int> OnPressed;
 	}
 }

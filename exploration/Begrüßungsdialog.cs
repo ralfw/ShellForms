@@ -22,6 +22,7 @@ namespace consoledialogs
 			var lst = new Listbox (5, 9, 3);
 			lst.Name = "lstNamen";
 			lst.Items = new[]{ "Kent", "Parker", "Müller-Lüdenscheid", "Oin", "Gloin", "Gimly" };
+			lst.MultipleSelect = true;
 			base.Add (lst);
 
 			var tb = new Textbox (5, 12, 20);
@@ -44,11 +45,11 @@ namespace consoledialogs
 			base.Add (lb);
 		}
 
-		private void btnBegrüßen_pressed(Control sender) {
-			var lst = (base ["lstNamen"] as Listbox);
+		private void btnBegrüßen_pressed(Button btn) {
 			var nachname = (base ["txtNachname"] as Textbox).Text;
-			if (lst.SelectedItemIndex >= 0)
-				nachname = lst.Items[lst.SelectedItemIndex];
+			var lst = (base ["lstNamen"] as Listbox);
+			if (lst.SelectedItemsIndexes.Length > 0)
+				nachname = lst.Items[lst.SelectedItemsIndexes[0]];
 
 			Begrüßung_angefordert(
 				(base["chkAnrede"] as Checkbox).Checked, 
