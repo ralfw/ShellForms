@@ -43,12 +43,7 @@ namespace shellforms
 
 
 		public void Refresh() {
-			var emptyline = new string (' ', Console.WindowWidth);
-			for (var row = 0; row < Console.WindowHeight; row++) {
-				Console.CursorLeft = 0;
-				Console.CursorTop = row;
-				Console.Write (emptyline);
-			}
+			Console.Clear ();
 			Paint ();
 		}
 

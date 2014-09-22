@@ -1,5 +1,4 @@
 ﻿Controls to implement:
-- mask char for textbox
 - multi-line textbox
 
 Enable/disable controls, start with Button.
