@@ -20,9 +20,12 @@ namespace shellforms.tests
 		private Confirmations confirmation;
 
 
-		public Messagebox(string title, string message, ConfirmationButtons confirmationbuttons = ConfirmationButtons.Ok) : this(title, new[]{message}, confirmationbuttons) {}
+		public Messagebox(string title, string message, 
+						  ConfirmationButtons confirmationbuttons = ConfirmationButtons.Ok) 
+			   : this(title, new[]{message}, confirmationbuttons) {}
 
-		public Messagebox(string title, IEnumerable<string> message, ConfirmationButtons confirmationbuttons = ConfirmationButtons.Ok) {
+		public Messagebox(string title, IEnumerable<string> message, 
+						  ConfirmationButtons confirmationbuttons = ConfirmationButtons.Ok) {
 			this.owner = new ShellForms ();
 
 			this.Title = title;
@@ -53,7 +56,23 @@ namespace shellforms.tests
 
 				btnOk.OnPressed += _ => {
 					this.confirmation = Confirmations.Ok;
-					this.owner.Stop();
+					this.owner.Stop ();
+				};
+			} else {
+				var btnOk = new Button (left + width / 2 - 7, top + height - 1, "Ok");
+				base.Add (btnOk);
+
+				btnOk.OnPressed += _ => {
+					this.confirmation = Confirmations.Ok;
+					this.owner.Stop ();
+				};
+
+				var btnCancel = new Button (left + width / 2 - 2, top + height - 1, "Cancel");
+				base.Add (btnCancel);
+
+				btnCancel.OnPressed += _ => {
+					this.confirmation = Confirmations.Cancel;
+					this.owner.Stop ();
 				};
 			}
 

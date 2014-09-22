@@ -54,7 +54,8 @@ namespace shellforms.tests
 			mb.OnSelected += (sender, i) => {
 				switch(i) {
 				case 0:
-					new Messagebox ("Test", "A msg\nbox with a\nmulti-line message.").Show (sf);
+					if (new Messagebox ("Test", "A msg\nbox with a\nmulti-line message.", Messagebox.ConfirmationButtons.OkCancel).Show (sf) == Messagebox.Confirmations.Cancel)
+						new Messagebox("Test", "Oh, cancellation?").Show(sf);
 					break;
 				case 1:
 					cmd.Text = "";
