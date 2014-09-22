@@ -83,6 +83,18 @@ namespace shellforms.tests
 			base.Add (btn);
 
 			btn.OnPressed += sender => new Messagebox ("Password", txtPwd.Text).Show (sf);
+
+
+			base.Add (new Label (2, 27){ Text = "Progress percent (0..100): " });
+
+			var cmdPercent = new Command (29, 27, 5) { Text = "30" };
+			cmdPercent.Name = "tbPercent";
+			base.Add (cmdPercent);
+
+			var pb = new Progressbar (35, 27, 12);
+			base.Add (pb);
+
+			cmdPercent.OnOrdered += _ => pb.Percent = Single.Parse(cmdPercent.Text);
 		}
 	}
 
