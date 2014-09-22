@@ -6,12 +6,27 @@ using shellforms.controls;
 namespace shellforms.tests
 {
 	public class Messagebox : Screen {
-		private ShellForms parent;
+		public enum ConfirmationButtons {
+			Ok,
+			OkCancel
+		}
 
-		public Messagebox(string title, string message) : this(title, new[]{message}) {}
+		public enum Confirmations {
+			Ok,
+			Cancel
+		}
+			
+		private ShellForms owner;
+		private Confirmations confirmation;
 
-		public Messagebox(string title, IEnumerable<string> message) {
+
+		public Messagebox(string title, string message, ConfirmationButtons confirmationbuttons = ConfirmationButtons.Ok) : this(title, new[]{message}, confirmationbuttons) {}
+
+		public Messagebox(string title, IEnumerable<string> message, ConfirmationButtons confirmationbuttons = ConfirmationButtons.Ok) {
+			this.owner = new ShellForms ();
+
 			this.Title = title;
+
 			message = message.SelectMany (l => l.Split (new[]{'\n'}));
 
 			var messageWidth = message.Max (l => l.Length);
@@ -31,20 +46,25 @@ namespace shellforms.tests
 			lblMsg.Text = string.Join ("\n", message);
 			base.Add (lblMsg);
 
-			var btnOk = new Button (left + width / 2 - 2, top + height - 1, "Ok");
-			base.Add (btnOk);
 
-			btnOk.OnPressed += _ => {
-				this.parent.Pop ();
-				this.parent.Refresh ();
-			};
+			if (confirmationbuttons == ConfirmationButtons.Ok) {
+				var btnOk = new Button (left + width / 2 - 2, top + height - 1, "Ok");
+				base.Add (btnOk);
+
+				btnOk.OnPressed += _ => {
+					this.confirmation = Confirmations.Ok;
+					this.owner.Stop();
+				};
+			}
+
+			owner.Push (this);
 		}
 
-		public void Show(ShellForms shellforms) {
-			this.parent = shellforms;
 
-			this.parent.Push (this);
-			Paint ();
+		public Confirmations Show(ShellForms parent) {
+			owner.Run ();
+			parent.Refresh ();
+			return this.confirmation;
 		}
 	}
 }

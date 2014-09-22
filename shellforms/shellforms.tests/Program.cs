@@ -10,10 +10,7 @@ namespace shellforms.tests
 		public static void Main (string[] args)
 		{
 			var sf = new ShellForms ();
-		
-			sf.Push (new Maindialog (sf) {Title = "Main"});
-
-			sf.Run ();
+			sf.Run (new Maindialog (sf) {Title = "Main"});
 		}
 	}
 }

@@ -8,17 +8,20 @@ namespace shellforms
 {
 	public class ShellForms {
 		private Stack<Screen> screens = new Stack<Screen>();
+		private bool looping;
 
 
 		public void Run(Screen screen) {
 			this.Push (screen);
+			Console.Clear ();
 			this.Run ();
 		}
 
 		public void Run() {
-			Refresh ();
+			this.Paint ();
 
-			while (true) {
+			this.looping = true;
+			while (looping) {
 				var x = Console.CursorLeft;
 				var y = Console.CursorTop;
 
@@ -29,6 +32,11 @@ namespace shellforms
 
 				ProcessKey (key);
 			}
+		}
+
+
+		public void Stop () {
+			this.looping = false;
 		}
 			
 
@@ -48,11 +56,6 @@ namespace shellforms
 		}
 
 
-		private void ProcessKey(ConsoleKeyInfo key) {
-			this.screens.Peek ().ProcessKey (key);
-			Paint ();
-		}
-			
 		private void Paint() {
 			var titles = this.screens.Select (c => c.Title).Reverse ();
 			var breadcrumps = string.Join ("/", titles);
@@ -61,6 +64,12 @@ namespace shellforms
 			Console.Write (breadcrumps);
 
 			this.screens.Peek ().Paint ();
+		}
+
+
+		private void ProcessKey(ConsoleKeyInfo key) {
+			this.screens.Peek ().ProcessKey (key);
+			Paint ();
 		}
 	}
 }
