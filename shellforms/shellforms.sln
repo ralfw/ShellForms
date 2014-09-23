@@ -67,6 +67,6 @@ Global
 		{7051066E-93FE-47E1-A3BC-E3B63966E6B1} = {95D24F0F-5F2C-4369-B114-E8C7EE182CB1}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = ..\samples\alarmclock\alarmclock.csproj
+		StartupItem = shellforms.tests\shellforms.tests.csproj
 	EndGlobalSection
 EndGlobal
