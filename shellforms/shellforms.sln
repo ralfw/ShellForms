@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exploration", "exploration\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{95D24F0F-5F2C-4369-B114-E8C7EE182CB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "backgroundtask", "..\samples\backgroundtask\backgroundtask.csproj", "{CFAC8F03-A796-45B5-B39C-71C0485BEA0B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csvviewer", "..\samples\csvviewer\csvviewer.csproj", "{5C11BB20-F7A6-42E7-AEEF-CA37F6DE8259}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "alarmclock", "..\samples\alarmclock\alarmclock.csproj", "{7051066E-93FE-47E1-A3BC-E3B63966E6B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +37,14 @@ Global
 		{5C11BB20-F7A6-42E7-AEEF-CA37F6DE8259}.Release|Any CPU.Build.0 = Release|x86
 		{5C11BB20-F7A6-42E7-AEEF-CA37F6DE8259}.Release|x86.ActiveCfg = Release|x86
 		{5C11BB20-F7A6-42E7-AEEF-CA37F6DE8259}.Release|x86.Build.0 = Release|x86
+		{7051066E-93FE-47E1-A3BC-E3B63966E6B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7051066E-93FE-47E1-A3BC-E3B63966E6B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7051066E-93FE-47E1-A3BC-E3B63966E6B1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7051066E-93FE-47E1-A3BC-E3B63966E6B1}.Debug|x86.Build.0 = Debug|Any CPU
+		{7051066E-93FE-47E1-A3BC-E3B63966E6B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7051066E-93FE-47E1-A3BC-E3B63966E6B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7051066E-93FE-47E1-A3BC-E3B63966E6B1}.Release|x86.ActiveCfg = Release|Any CPU
+		{7051066E-93FE-47E1-A3BC-E3B63966E6B1}.Release|x86.Build.0 = Release|Any CPU
 		{C3B00181-956F-4366-B1C4-46864F1CA89B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C3B00181-956F-4366-B1C4-46864F1CA89B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3B00181-956F-4366-B1C4-46864F1CA89B}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -45,14 +53,6 @@ Global
 		{C3B00181-956F-4366-B1C4-46864F1CA89B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C3B00181-956F-4366-B1C4-46864F1CA89B}.Release|x86.ActiveCfg = Release|Any CPU
 		{C3B00181-956F-4366-B1C4-46864F1CA89B}.Release|x86.Build.0 = Release|Any CPU
-		{CFAC8F03-A796-45B5-B39C-71C0485BEA0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CFAC8F03-A796-45B5-B39C-71C0485BEA0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CFAC8F03-A796-45B5-B39C-71C0485BEA0B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{CFAC8F03-A796-45B5-B39C-71C0485BEA0B}.Debug|x86.Build.0 = Debug|Any CPU
-		{CFAC8F03-A796-45B5-B39C-71C0485BEA0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CFAC8F03-A796-45B5-B39C-71C0485BEA0B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CFAC8F03-A796-45B5-B39C-71C0485BEA0B}.Release|x86.ActiveCfg = Release|Any CPU
-		{CFAC8F03-A796-45B5-B39C-71C0485BEA0B}.Release|x86.Build.0 = Release|Any CPU
 		{EACDEBEA-DC34-437E-BA4A-BC2B346A6035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EACDEBEA-DC34-437E-BA4A-BC2B346A6035}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EACDEBEA-DC34-437E-BA4A-BC2B346A6035}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -63,10 +63,10 @@ Global
 		{EACDEBEA-DC34-437E-BA4A-BC2B346A6035}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{CFAC8F03-A796-45B5-B39C-71C0485BEA0B} = {95D24F0F-5F2C-4369-B114-E8C7EE182CB1}
 		{5C11BB20-F7A6-42E7-AEEF-CA37F6DE8259} = {95D24F0F-5F2C-4369-B114-E8C7EE182CB1}
+		{7051066E-93FE-47E1-A3BC-E3B63966E6B1} = {95D24F0F-5F2C-4369-B114-E8C7EE182CB1}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = shellforms.tests\shellforms.tests.csproj
+		StartupItem = ..\samples\alarmclock\alarmclock.csproj
 	EndGlobalSection
 EndGlobal

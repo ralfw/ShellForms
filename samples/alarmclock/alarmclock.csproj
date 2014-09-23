@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CFAC8F03-A796-45B5-B39C-71C0485BEA0B}</ProjectGuid>
+    <ProjectGuid>{7051066E-93FE-47E1-A3BC-E3B63966E6B1}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>backgroundtask</RootNamespace>
-    <AssemblyName>backgroundtask</AssemblyName>
+    <RootNamespace>alarmclock</RootNamespace>
+    <AssemblyName>alarmclock</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -33,6 +33,8 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MainWindow.cs" />
+    <Compile Include="Clock.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -44,7 +44,7 @@ namespace shellforms.controls
 			}
 		}
 
-		private string text;
+		private string text = "";
 		public string Text { 
 			get{ return this.text; }
 			set { this.text = value; }

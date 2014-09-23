@@ -3,13 +3,13 @@ using System.Linq;
 using System.Collections.Generic;
 
 using shellforms.controls;
+using System.Threading;
 
 namespace shellforms
 {
 	public class ShellForms {
 		private Stack<Screen> screens = new Stack<Screen>();
 		private bool looping;
-
 
 		public void Run(Screen screen) {
 			this.Push (screen);
@@ -22,14 +22,16 @@ namespace shellforms
 
 			this.looping = true;
 			while (looping) {
+				ConsoleKeyInfo key;
+
 				var x = Console.CursorLeft;
 				var y = Console.CursorTop;
 
-				var key = Console.ReadKey ();
+				key = Console.ReadKey ();
 
 				Console.CursorLeft = x;
 				Console.CursorTop = y;
-
+		
 				ProcessKey (key);
 			}
 		}

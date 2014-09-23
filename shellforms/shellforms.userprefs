@@ -1,19 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="shellforms.tests/Maindialog.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="shellforms/ShellForms.cs">
     <Files>
-      <File FileName="shellforms/controls/Menubar.cs" Line="24" Column="24" />
-      <File FileName="shellforms/ShellForms.cs" Line="1" Column="1" />
-      <File FileName="shellforms/controls/Listbox.cs" Line="5" Column="5" />
-      <File FileName="shellforms.tests/Program.cs" Line="1" Column="1" />
-      <File FileName="shellforms.tests/Maindialog.cs" Line="35" Column="35" />
-      <File FileName="shellforms/controls/Control.cs" Line="1" Column="1" />
-      <File FileName="shellforms/controls/Button.cs" Line="1" Column="1" />
-      <File FileName="shellforms/controls/Checkbox.cs" Line="1" Column="1" />
-      <File FileName="shellforms/controls/Label.cs" Line="1" Column="1" />
-      <File FileName="shellforms/controls/Radiobuttongroup.cs" Line="1" Column="1" />
-      <File FileName="shellforms/controls/Textbox.cs" Line="1" Column="1" />
-      <File FileName="shellforms/controls/Screen.cs" Line="1" Column="1" />
+      <File FileName="shellforms/controls/Progressbar.cs" Line="23" Column="23" />
+      <File FileName="shellforms.tests/Maindialog.cs" Line="34" Column="34" />
+      <File FileName="../samples/alarmclock/Program.cs" Line="4" Column="4" />
+      <File FileName="shellforms/controls/Label.cs" Line="35" Column="35" />
+      <File FileName="../samples/alarmclock/Clock.cs" Line="30" Column="30" />
+      <File FileName="../samples/alarmclock/MainWindow.cs" Line="27" Column="27" />
+      <File FileName="shellforms/ShellForms.cs" Line="4" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
